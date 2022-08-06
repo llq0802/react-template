@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+echo "========= 执行pre-commit代码规范校验 ======="
+npm run lint-staged

@@ -1,0 +1,246 @@
+// @import '~antd/es/style/variable.less'; //动态主题
+@import '~antd/es/style/themes/default.less'; // antd变量
+@import '~antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
+@import './styles/variables.less';
+@font-face {
+  font-family: 'DINPro'; // --自定义名字就好
+  src: url('./assets/fonts/DINProMedium.ttf'); // --下载的字体文件路径
+}
+body {
+  min-width: 1200px;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family: 'DINPro'; // --自定义名字就好
+
+  :global(.antd-pro-components-top-nav-header-index-logo) {
+    width: auto;
+  }
+
+  :global(.ant-menu-vertical.ant-menu-sub) {
+    min-width: 180px;
+  }
+
+  .show {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .float-right {
+    float: right;
+  }
+}
+
+img {
+  width: auto;
+  height: auto;
+  border: 0;
+}
+
+canvas {
+  display: block;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
+}
+
+:global {
+  .ant-cascader-picker {
+    width: 100%;
+  }
+
+  .ccs-model-success {
+    background-color: rgba(89, 131, 75, 0.92) !important;
+
+    .ant-notification-notice-icon-success {
+      color: #fff;
+    }
+  }
+
+  .ccs-model-warning {
+    background-color: rgba(190, 112, 31, 0.92) !important;
+
+    .ant-notification-notice-icon-warning {
+      color: #fff;
+    }
+  }
+
+  .ccs-model-info {
+    background-color: rgba(49, 81, 133, 0.92) !important;
+
+    .ant-notification-notice-icon-info {
+      color: #fff;
+    }
+  }
+
+  .ccs-model-error {
+    background-color: rgba(153, 40, 18, 0.92) !important;
+
+    .ant-notification-notice-icon-error {
+      color: #fff;
+    }
+  }
+
+  .ant-notification-notice-message,
+  .ant-notification-notice-description,
+  .ant-notification-notice-close,
+  .ant-notification-notice-close-x {
+    color: #fff !important;
+  }
+
+  .rdw-image-modal-header {
+    height: 0;
+    margin: 0 !important;
+    overflow: hidden;
+  }
+
+  .drawer-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 10px 16px;
+    text-align: right;
+    background-color: #fff;
+    border-top: 1px solid #e8e8e8;
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+#components-tabs-demo-card-top .code-box-demo {
+  padding: 24px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+/* nprogress start */
+#nprogress {
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1031;
+  width: 100%;
+  height: 2px;
+  // background: @primary-color;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px @primary-color, 0 0 5px @primary-color;
+  -webkit-transform: rotate(3deg) translate(0, -4px);
+  -ms-transform: rotate(3deg) translate(0, -4px);
+  transform: rotate(3deg) translate(0, -4px);
+  opacity: 1;
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1031;
+  display: block;
+}
+
+#nprogress .spinner-icon {
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: solid 2px transparent;
+  border-top-color: @primary-color;
+  border-left-color: @primary-color;
+  border-radius: 50%;
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* nprogress end */
