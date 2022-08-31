@@ -17,6 +17,7 @@ module.exports = {
     eqeqeq: [2, 'allow-null'], // 使用 === 替代 == allow-null允许null和undefined==
     semi: [2, 'always'], // 语句强制分号结尾
     '@typescript-eslint/no-unused-vars': 0,
+    'consistent-return': 0,
     // 'import/newline-after-import': 2,
     // indent: [2, 2, { ignoredNodes: ['ConditionalExpression'] }], // 缩进风格2个空格键
   },
