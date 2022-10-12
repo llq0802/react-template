@@ -3,7 +3,6 @@ import useUpdateEffect from './useUpdateEffect';
 import useUpdate from './useUpdate';
 import useUnmount from './useUnmount';
 import useSetState from './useSetState';
-import useRefState from './useRefState';
 import useRafState from './useRafState';
 import usePrevious from './usePrevious';
 import useLockFn from './useLockFn';
@@ -16,7 +15,6 @@ export {
   useUpdate,
   useUnmount,
   useSetState,
-  useRefState,
   useRafState,
   usePrevious,
   useLockFn,

@@ -63,16 +63,17 @@ const LoginModel: AuthModelType = {
     menus: [],
   },
   effects: {
+    // 验证码接口
     *captcha(_, { call, put }) {
-      const response = yield call(getCaptchaImg);
+      const response: Response = yield call(getCaptchaImg);
       yield put({
         type: 'saveImg',
         payload: { img: response },
       });
     },
-    // 登录
+    // 登录接口
     *login({ payload }, { call, put }) {
-      const response = yield call(doLogin, payload);
+      const response: Record<string, any> = yield call(doLogin, payload);
       if (response.success) {
         yield put({
           type: 'save',
@@ -83,6 +84,7 @@ const LoginModel: AuthModelType = {
         if (process.env.NODE_ENV === 'development') {
           setStroage(USER_TOKEN, response);
         }
+
         const params = getPageQuery();
         let { redirect = '/' } = params as { redirect: string };
 
@@ -102,7 +104,7 @@ const LoginModel: AuthModelType = {
     },
     // 刷新token
     *refresh({ payload }, { call, put }) {
-      const userInfo = yield call(getStroage, USER_TOKEN);
+      const userInfo: Record<string, any> = yield call(getStroage, USER_TOKEN);
       if (process.env.NODE_ENV === 'development' && userInfo && !payload?.force) {
         yield put({
           type: 'save',
@@ -110,7 +112,7 @@ const LoginModel: AuthModelType = {
         });
         return;
       }
-      const response = yield call(refreshToken, payload);
+      const response: Record<string, any> = yield call(refreshToken, payload);
       if (response.success) {
         sessionStorage.setItem(USER_TOKEN, response.data.token);
         // 开发环境缓存用户信息

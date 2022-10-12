@@ -2,10 +2,10 @@ import type { FC } from 'react';
 import React from 'react';
 import { Select, Spin } from 'antd';
 import useRequest from '@ahooksjs/use-request';
+// import { useRequest } from 'ahooks';
 import type { HttpPageResult } from '@ccs-design/rc-pro';
 import { queryPageValue } from '@/pages/sys/property/service';
-import type { SysPropValueType } from '@/pages/sys/property/type.d';
-// import type { SysPropValueType } from '@/pages/sys/property/type.d';
+import type { SysPropValueType } from '@/pages/sys/property/types.d';
 
 const { Option } = Select;
 

@@ -4,6 +4,8 @@ export const BASE_URL = 'http://114.55.37.75/' as const;
 
 export const USER_TOKEN = `${encodeURI(GlobalConfig.AppName)}_USER_TOKEN`;
 
+export const STATUS_MAP = ['无效', '有效'] as const;
+
 export const NOTIFICATION_TYPES = {
   success: '操作成功',
   info: '操作信息',

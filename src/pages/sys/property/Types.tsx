@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import type { ProTableInstance, ItemType, TabPropType } from '@ccs-design/rc-pro';
 import { CcsProTable, CcsAuthButton, useEvent } from '@ccs-design/rc-pro';
 import { CcsStateBadge } from '@/components/common';
-import type { SysPropType, SysPropTypePartial } from './Type';
+import type { SysPropType, SysPropTypePartial } from './types';
 import { queryPageProperty } from './service';
 import SysPropertyTypeForm from './TypeModel';
 

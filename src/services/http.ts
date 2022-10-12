@@ -56,10 +56,11 @@ http.use(async (ctx: Context, next: () => void) => {
   } = ctx;
   ctx.req.options.headers = {
     ...headers,
-    token: sessionStorage.getItem(USER_TOKEN) as any,
+    ticket: sessionStorage.getItem(USER_TOKEN) as string,
+    // token: sessionStorage.getItem(USER_TOKEN) as string,
   };
-  // ctx.req.url = url.startsWith('/mockApi') ? url : `${GlobalConfig.Api}${url}`;
-  ctx.req.url = `${GlobalConfig.Api}${url}`; // '/api/xxx/xxx'
+  ctx.req.url = url.startsWith('/mockApi') ? url : `${GlobalConfig.Api}${url}`;
+  // ctx.req.url = `${GlobalConfig.Api}${url}`; // '/api/xxx/xxx'
   await next();
 });
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLatest } from './useLatest';
+import useLatest from './useLatest';
 
 /**
  * 在组件卸载（unmount）时执行的 Hook。

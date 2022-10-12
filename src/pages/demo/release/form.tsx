@@ -1,12 +1,15 @@
-import React, { FC, RefObject, useEffect, useRef, useState } from 'react';
-import { Form, Input, DatePicker, FormInstance, Row, Col } from 'antd';
+import type { FC, RefObject } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import type { FormInstance } from 'antd';
+import { Form, Input, DatePicker, Row, Col } from 'antd';
+import useRequest from '@ahooksjs/use-request';
+import type { HttpResult, ProTableInstance, EventInstance } from '@ccs-design/rc-pro';
+import { CcsDrawerForm } from '@ccs-design/rc-pro';
 import { CcsBraft, CcsStateSelect, CcsUploadImage } from '@/components/common';
 import { CcsStaticSelect } from '@/components/business';
-import useRequest from '@ahooksjs/use-request';
 import { createPub, getPubContent } from './service';
 import { momentDate } from '@/utils';
-import { BussReleaseTypePartial } from './type';
-import { HttpResult, ProTableInstance, EventInstance, CcsDrawerForm } from '@ccs-design/rc-pro';
+import type { BussReleaseTypePartial } from './type';
 import styles from './index.less';
 
 const { RangePicker } = DatePicker;

@@ -24,13 +24,13 @@ function CcsSelect<T>({ onChange, options = [], fieldNames, ...restProps }: Prop
 
   useEffect(() => {
     // 判断选中值未匹配到选项，清除选中值
-    if (!_isNil(restProps.value) && options.length) {
+    if (!_isNil(restProps.value) && options?.length) {
       const f = options.find((o) => o[fieldNames?.value || 'value'] === restProps.value);
       if (!f) {
         if (onChange) onChange(undefined);
       }
     }
-  }, [options.length]);
+  }, [options]);
 
   return (
     <Select

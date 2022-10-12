@@ -5,7 +5,7 @@ import type { ItemType, ProTableInstance, TabPropType } from '@ccs-design/rc-pro
 import { CcsProTable, CcsAuthButton, useEvent } from '@ccs-design/rc-pro';
 import { CcsStateBadge } from '@/components/common';
 import SysPropertysValueForm from './ValueModel';
-import type { SysPropValueType, SysPropValueTypePartial } from './Type.d';
+import type { SysPropValueType, SysPropValueTypePartial } from './types';
 import { queryPageValue } from './service';
 
 interface PropsType extends TabPropType {

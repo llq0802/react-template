@@ -1,6 +1,6 @@
 import type { PageQueryType } from '@ccs-design/rc-pro';
 import { post } from '@/services/http';
-import type { SysPropType, SysPropValueType } from './Type';
+import type { SysPropType, SysPropValueType } from './types';
 
 // 属性分页
 export const queryPageProperty = (param: PageQueryType) =>

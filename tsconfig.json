@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
     "module": "esnext",
     "target": "esnext",
     "lib": ["esnext", "dom"],
@@ -30,14 +29,7 @@
     "__test__/**/*",
     "typings/**/*",
     "config/**/*",
-    ".eslintrc.js",
-    ".stylelintrc.js",
-    ".prettierrc.js",
-    "jest.config.js",
-    "mock/*",
-    "src/pages/sys/org/type/.ts",
-    "src/pages/sys/property/.tsx",
-    "commitlint.config.js"
+    "mock/*"
   ],
   "exclude": ["node_modules", "build", "dist", "scripts", "src/.umi/*", "webpack", "jest"]
 }

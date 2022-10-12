@@ -9,7 +9,7 @@ import type { ConnectLoading, DispatchType } from '@/global';
 import { USER_TOKEN } from '@/constants';
 
 interface SecurityLayoutProps extends DispatchType {
-  loading?: boolean;
+  loadingAuthModel?: boolean;
   userDetail: UserDetailType;
   children: ReactElement<any, any> | null;
 }
@@ -24,30 +24,29 @@ const AuthLayout: FC<SecurityLayoutProps> = ({
   userDetail,
   children,
   dispatch,
-  loading = false,
+  loadingAuthModel = false,
 }) => {
   const [isLogining, setIsLogining] = useState(false);
   const token = sessionStorage.getItem(USER_TOKEN);
 
-  // 跳转登录
+  // 没有token跳转登录
   if (!token && !isLogining) {
     let redirect = window.location.pathname;
     const { hash } = window.location;
     if (hash && hash.startsWith('#')) {
       redirect = hash.replace('#', '');
     }
-
     const queryString = stringify({
       redirect,
     });
     return <Redirect to={`/auth/login?${queryString}`} />;
   }
-
-  if ((loading || isLogining) && !userDetail?.token) {
+  // 在请求时刷新接口时的loading
+  if ((loadingAuthModel || isLogining) && !userDetail?.token) {
     return <CcsPageLoading />;
   }
 
-  // 刷新token
+  // 没有获取到用户信息时刷新token
   if (token && isEmpty(userDetail)) {
     setIsLogining(true);
     dispatch({
@@ -55,12 +54,13 @@ const AuthLayout: FC<SecurityLayoutProps> = ({
     });
     return <CcsPageLoading />;
   }
+
   return children;
 };
 
 export default connect(
   ({ authModel, loading }: { authModel: AuthModelState; loading: ConnectLoading }) => ({
     userDetail: authModel.userDetail,
-    loading: loading.models.authModel || false,
+    loadingAuthModel: loading.models.authModel || false,
   }),
 )(AuthLayout);

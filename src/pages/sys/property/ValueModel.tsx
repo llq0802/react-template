@@ -6,7 +6,7 @@ import type { ProTableInstance, HttpResult, EventInstance } from '@ccs-design/rc
 import { CcsModalForm } from '@ccs-design/rc-pro';
 import { CcsStateSelect } from '@/components/common';
 import { createValue } from './service';
-import type { SysPropValueTypePartial } from './Type';
+import type { SysPropValueTypePartial } from './types.d';
 
 const { Item } = Form;
 

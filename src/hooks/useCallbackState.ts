@@ -9,7 +9,11 @@ import { useState, useRef, useEffect } from 'react';
  */
 export default function useCallbackState<T>(state: T): [T, Function] {
   const callBackRef = useRef<Function | null>(null);
-  const [data, setData] = useState<T>(state);
+  const [data, setData] = useState(() => {
+    const value = typeof state === 'function' ? state() : state;
+    return value;
+  });
+
   useEffect(() => {
     callBackRef?.current?.(data);
   }, [data]);
@@ -18,7 +22,14 @@ export default function useCallbackState<T>(state: T): [T, Function] {
     data,
     (newState: T, cb: Function) => {
       callBackRef.current = cb;
-      setData(newState);
+      if (typeof newState === 'function') {
+        setData((prevState: T) => {
+          const ret = newState?.(prevState);
+          return ret;
+        });
+      } else {
+        setData(newState);
+      }
     },
   ];
 }
