@@ -22,9 +22,15 @@
     "lint-staged": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.less": [],
-    "src/**/*.{js,jsx,ts,tsx}": [],
-    "**/*.{js,jsx,tsx,ts,less,md,json}": []
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write"
+    ],
+    "src/**/*.less": [
+      "stylelint --fix"
+    ],
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --ext"
+    ]
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
